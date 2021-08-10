@@ -13,11 +13,13 @@ before_install:
   - sudo mv ./kubectl /usr/local/bin/kubectl
 
 install:
-  - docker-compose -f udagram-deployment/docker-compose-build.yaml build --parallel
+  - docker-compose -f repository/MandM/docker-compose-build.yaml build --parallel
+  after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker-compose -f udagram-deployment/docker-compose-build.yaml push
-
-  
+  - docker push dbledime1/udagram-user
+  - docker push dbledime1/udagram-feed
+  - docker push dbledime1/udagram-reverseproxy
+  - docker push dbledime1/udagram-frontend
  
 
   
