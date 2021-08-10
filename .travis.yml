@@ -12,14 +12,22 @@ before_install:
   - chmod +x ./kubectl
   - sudo mv ./kubectl /usr/local/bin/kubectl
 
-install:
-  - docker-compose -f repository/MandM/docker-compose-build.yaml build --parallel
+build:
+  - docker build -t udagram-api-feed ./udagram-api-feed
+  - docker build -t udagram-api-feed ./udagram-api-user
+  - docker build -t udagram-api-feed ./udagram-frontend
+  - docker build -t udagram-api-feed ./udagram-reverseproxy
+tagging:
+  -docker tag udagram-api-feed sudkul/udagram-api-feed:v1
+  -docker tag udagram-api-feed sudkul/udagram-api-user:v1
+  -docker tag udagram-api-feed sudkul/udagram-frontend:v1
+  -docker tag udagram-api-feed sudkul/udagram-reverseproxy:v1
   after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push dbledime1/udagram-user
-  - docker push dbledime1/udagram-feed
-  - docker push dbledime1/udagram-reverseproxy
-  - docker push dbledime1/udagram-frontend
+  - docker push sudkul/udagram-api-feed:v1
+  - docker push sudkul/udagram-api-user:v1
+  - docker push sudkul/udagram-frontend:v1
+  - docker push sudkul/udagram-reverseproxy:v1
  
 
   
