@@ -15,7 +15,7 @@ spec:
         service: reverseproxy
     spec:
       containers:
-      - image: dbledime1/reverseproxy
+      - image: dbledime1/udagram-reverseproxy
         name: reverseproxy
         imagePullPolicy: Always          
         resources:
