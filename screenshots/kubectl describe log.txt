@@ -1,0 +1,163 @@
+C:\Users\15139>kubectl describe services
+Name:              backend-feed
+Namespace:         default
+Labels:            service=backend-feed
+Annotations:       <none>
+Selector:          service=backend-feed
+Type:              ClusterIP
+IP Families:       <none>
+IP:                10.100.146.109
+IPs:               10.100.146.109
+Port:              8080  8080/TCP
+TargetPort:        8080/TCP
+Endpoints:
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              backend-user
+Namespace:         default
+Labels:            service=backend-user
+Annotations:       <none>
+Selector:          service=backend-user
+Type:              ClusterIP
+IP Families:       <none>
+IP:                10.100.46.196
+IPs:               10.100.46.196
+Port:              8080  8080/TCP
+TargetPort:        8080/TCP
+Endpoints:
+Session Affinity:  None
+Events:            <none>
+
+
+Name:                     frontend
+Namespace:                default
+Labels:                   service=frontend
+Annotations:              <none>
+Selector:                 service=frontend
+Type:                     LoadBalancer
+IP Families:              <none>
+IP:                       10.100.176.120
+IPs:                      10.100.176.120
+LoadBalancer Ingress:     a87d452a19b454f3597b4ad0197f46d4-268595542.us-east-2.elb.amazonaws.com
+Port:                     8100  8100/TCP
+TargetPort:               80/TCP
+NodePort:                 8100  32434/TCP
+Endpoints:                172.31.3.179:80
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:
+  Type    Reason                Age   From                Message
+  ----    ------                ----  ----                -------
+  Normal  EnsuringLoadBalancer  59m   service-controller  Ensuring load balancer
+  Normal  EnsuredLoadBalancer   59m   service-controller  Ensured load balancer
+
+
+Name:              kubernetes
+Namespace:         default
+Labels:            component=apiserver
+                   provider=kubernetes
+Annotations:       <none>
+Selector:          <none>
+Type:              ClusterIP
+IP Families:       <none>
+IP:                10.100.0.1
+IPs:               10.100.0.1
+Port:              https  443/TCP
+TargetPort:        443/TCP
+Endpoints:         172.31.13.128:443,172.31.35.36:443
+Session Affinity:  None
+Events:            <none>
+
+
+Name:                     publicfronten
+Namespace:                default
+Labels:                   service=frontend
+Annotations:              <none>
+Selector:                 service=frontend
+Type:                     LoadBalancer
+IP Families:              <none>
+IP:                       10.100.78.66
+IPs:                      10.100.78.66
+LoadBalancer Ingress:     ad33ac4e6dc8b48efadd6e5dafde81e1-1922816478.us-east-2.elb.amazonaws.com
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+NodePort:                 <unset>  31029/TCP
+Endpoints:                172.31.3.179:80
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:
+  Type    Reason                Age   From                Message
+  ----    ------                ----  ----                -------
+  Normal  EnsuringLoadBalancer  39m   service-controller  Ensuring load balancer
+  Normal  EnsuredLoadBalancer   39m   service-controller  Ensured load balancer
+
+
+Name:                     publicfrontend
+Namespace:                default
+Labels:                   service=frontend
+Annotations:              <none>
+Selector:                 service=frontend
+Type:                     LoadBalancer
+IP Families:              <none>
+IP:                       10.100.209.67
+IPs:                      10.100.209.67
+LoadBalancer Ingress:     a1098baa1ce9f4e47bb25f29c3055491-1990370952.us-east-2.elb.amazonaws.com
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+NodePort:                 <unset>  31394/TCP
+Endpoints:                172.31.3.179:80
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:
+  Type    Reason                Age   From                Message
+  ----    ------                ----  ----                -------
+  Normal  EnsuringLoadBalancer  55m   service-controller  Ensuring load balancer
+  Normal  EnsuredLoadBalancer   55m   service-controller  Ensured load balancer
+
+
+Name:                     publicreverseproxy
+Namespace:                default
+Labels:                   service=reverseproxy
+Annotations:              <none>
+Selector:                 service=reverseproxy
+Type:                     LoadBalancer
+IP Families:              <none>
+IP:                       10.100.58.222
+IPs:                      10.100.58.222
+LoadBalancer Ingress:     ac604a4fd04c6486a89697fb36ba7707-1800843334.us-east-2.elb.amazonaws.com
+Port:                     <unset>  8080/TCP
+TargetPort:               8080/TCP
+NodePort:                 <unset>  32309/TCP
+Endpoints:
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:
+  Type    Reason                Age   From                Message
+  ----    ------                ----  ----                -------
+  Normal  EnsuringLoadBalancer  52m   service-controller  Ensuring load balancer
+  Normal  EnsuredLoadBalancer   52m   service-controller  Ensured load balancer
+
+
+Name:                     reverseproxy
+Namespace:                default
+Labels:                   service=reverseproxy
+Annotations:              <none>
+Selector:                 service=reverseproxy
+Type:                     LoadBalancer
+IP Families:              <none>
+IP:                       10.100.23.222
+IPs:                      10.100.23.222
+LoadBalancer Ingress:     adbcfca388b55463183760b1d4dcbaf3-1105217095.us-east-2.elb.amazonaws.com
+Port:                     8080  8080/TCP
+TargetPort:               8080/TCP
+NodePort:                 8080  30379/TCP
+Endpoints:
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:
+  Type    Reason                Age   From                Message
+  ----    ------                ----  ----                -------
+  Normal  EnsuringLoadBalancer  59m   service-controller  Ensuring load balancer
+  Normal  EnsuredLoadBalancer   59m   service-controller  Ensured load balancer
