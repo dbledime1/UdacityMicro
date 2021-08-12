@@ -5,6 +5,7 @@ metadata:
     service: backend-feed
   name: backend-feed
 spec:
+  progressDeadlineSeconds: 3600
   replicas: 1
   selector:
     matchLabels:
@@ -15,7 +16,7 @@ spec:
         service: backend-feed
     spec:
       containers:
-        - image: udagram-api-feed
+        - image: dbledime1/udagram-api-feed
           name: backend-feed
           imagePullPolicy: Always
           resources:
