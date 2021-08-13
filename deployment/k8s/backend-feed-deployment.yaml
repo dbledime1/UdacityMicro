@@ -15,7 +15,7 @@ spec:
         app: backend-feed
     spec:
       containers:
-      - image: dbledime/udagram-api-feed
+      - image: dbledime/udagram-api-feed:latest
         name: backend-feed
         imagePullPolicy: Always  
         resources:
@@ -29,12 +29,12 @@ spec:
         - name: URL
           valueFrom:
             configMapKeyRef:
-              name: env.config
+              name: env-config
               key: URL
         - name: AWS_S3_BUCKET
           valueFrom:
             configMapKeyRef:
-              name: env.config
+              name: env-config
               key: AWS_S3_BUCKET
         - name: AWS_PROFILE
           valueFrom:
@@ -54,17 +54,17 @@ spec:
         - name: POSTGRESS_DATABASE
           valueFrom:
             configMapKeyRef:
-              name: env.config
+              name: env-config
               key: POSTGRESS_DATABASE
         - name: POSTGRESS_HOST
           valueFrom:
             configMapKeyRef:
-              name: env.config
+              name: env-config
               key: POSTGRESS_HOST
         - name: POSTGRESS_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: env.secret
+              name: env-secret
               key: POSTGRESS_PASSWORD
         - name: POSTGRESS_USERNAME
           valueFrom:
@@ -72,7 +72,7 @@ spec:
               name: env.secret
               key: POSTGRESS_USERNAME      
         volumeMounts:
-        - name: aws.secret
+        - name: aws-secret
           mountPath: "/root/.aws/"
           readOnly: true        
       restartPolicy: Always
