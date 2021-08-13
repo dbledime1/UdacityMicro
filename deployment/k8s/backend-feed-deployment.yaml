@@ -15,7 +15,7 @@ spec:
         app: backend-feed
     spec:
       containers:
-      - image: dbledime/udagram-api-feed:latest
+      - image: udagram-api-feed:latest
         name: backend-feed
         imagePullPolicy: Always  
         resources:
